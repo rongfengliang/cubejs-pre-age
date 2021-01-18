@@ -7,6 +7,12 @@ services:
       - "POSTGRES_PASSWORD=dalong"
     ports:
     - "5432:5432"
+  pg2: 
+    image: postgres:12
+    environment:
+      - "POSTGRES_PASSWORD=dalong"
+    ports:
+    - "5433:5432"
   redis:
     image: redis
     ports:
