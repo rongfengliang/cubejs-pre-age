@@ -1,0 +1,31 @@
+[
+    {
+      "preAggregations": {
+        "mydemo": {
+          "type": "autoRollup",
+          "measureReferences": ["DynamicCubeSchema.price"],
+          "dimensionReferences": ["name"],
+          "external": true
+        }
+      },
+       "dimensions": {
+        "name": {
+            "sql": "name",
+            "type": "string"
+         }
+       },
+       "measures": {
+        "price": {
+            "drillMembers": ["name", "id"],
+            "type":"count"
+         },
+         "filters": [
+          { 
+            "sql": "DynamicCubeSchema.paying = true"
+           }
+        ]
+       },
+       "title": "DynamicCubeSchema",
+       "sql": "SELECT * FROM demoapp"
+    }
+]

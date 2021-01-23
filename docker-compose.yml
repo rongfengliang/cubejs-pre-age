@@ -18,7 +18,7 @@ services:
     ports:
     - "6379:6379"
   cubestorage:
-    image:  cubejs/cubestore:build-100
+    image:  cubejs/cubestore:build-110
     ports:
     - "3306:3306"
     

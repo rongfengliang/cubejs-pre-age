@@ -18,12 +18,10 @@ module.exports = {
             readOnly: true
         });
     },
-    externalDbType: 'postgres',
-    externalDriverFactory: () => new PostgresDriver({
-        user: "postgres",
-            database: "postgres",
-            password: "dalong",
-            port: 5433,
-            host: "127.0.0.1"
+    externalDbType: 'cubestore',
+    externalDriverFactory: () => new CubeStoreDriver({
+        user: "root",
+        port: 3306,
+        host: "127.0.0.1"
     })
 };

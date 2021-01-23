@@ -1,0 +1,35 @@
+import { tableSchema } from '../utils/login';
+
+cube(`userlogin`,{
+  sql: `SELECT * FROM ${tableSchema()}`,
+  joins: {
+    
+  },
+  preAggregations: {
+    mydemo: {
+      type: `rollup`,
+      measureReferences: [Demoapp.count],
+      dimensionReferences: [name],
+      external: true
+    }
+  },
+  measures: {
+    count: {
+      type: `count`,
+      drillMembers: [name, id]
+    }
+  },
+  
+  dimensions: {
+    name: {
+      sql: `name`,
+      type: `string`
+    },
+    
+    id: {
+      sql: `id`,
+      type: `number`,
+      primaryKey: true
+    }
+  }
+});
