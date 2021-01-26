@@ -1,6 +1,7 @@
 // Cube.js configuration options: https://cube.dev/docs/config
 const PostgresDriver = require("@cubejs-backend/postgres-driver");
 const CubeStoreDriver = require("@cubejs-backend/cubestore-driver")
+const myS3FileRepository = require("@dalongrong/cube-s3repository")
 module.exports = {
     devServer: true,
     dbType: ({ dataSource } = {}) => {
@@ -18,10 +19,12 @@ module.exports = {
             readOnly: true
         });
     },
+    repositoryFactory: myS3FileRepository.repositoryFactory,
     externalDbType: 'cubestore',
     externalDriverFactory: () => new CubeStoreDriver({
         user: "root",
         port: 3306,
         host: "127.0.0.1"
     })
+
 };

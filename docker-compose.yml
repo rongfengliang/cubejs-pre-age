@@ -7,6 +7,14 @@ services:
       - "POSTGRES_PASSWORD=dalong"
     ports:
     - "5432:5432"
+  minio: 
+    image: minio/minio
+    command: server /data
+    ports: 
+    - "9000:9000"
+    environment:
+      - "MINIO_ACCESS_KEY=minio"
+      - "MINIO_SECRET_KEY=minio123"
   pg2: 
     image: postgres:12
     environment:

@@ -12,6 +12,7 @@
     "@cubejs-backend/server": "^0.25.24"
   },
   "dependencies": {
+    "@dalongrong/cube-s3repository": "^1.0.1",
     "node-fetch": "^2.6.1",
     "throng": "^5.0.0"
   }
