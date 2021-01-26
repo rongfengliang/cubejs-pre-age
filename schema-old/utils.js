@@ -1,39 +1,38 @@
 export const convertStringPropToFunction = (propNames, dimensionDefinition) => {
-    let newResult = { ...dimensionDefinition };
+  const newResult = { ...dimensionDefinition }
     propNames.forEach((propName) => {
-      const propValue = newResult[propName];
+    const propValue = newResult[propName]
   
       if (!propValue) {
-        return;
+      return
       }
-  
-      newResult[propName] = () => propValue;
-    });
-    return newResult;
+    newResult[propName] = () => propValue
+    })
+    return newResult
   };
-  
-  export const transformDimensions = (dimensions) => {
-    return Object.keys(dimensions).reduce((result, dimensionName) => {
-      const dimensionDefinition = dimensions[dimensionName];
+
+export const transformDimensions = (dimensions) => {
+  return Object.keys(dimensions).reduce((result, dimensionName) => {
+    const dimensionDefinition = dimensions[dimensionName]
       return {
-        ...result,
-        [dimensionName]: convertStringPropToFunction(
-          ['sql'],
-          dimensionDefinition
-        ),
-      };
-    }, {});
+      ...result,
+      [dimensionName]: convertStringPropToFunction(
+        ['sql'],
+        dimensionDefinition
+      )
+    }
+    }, {})
   };
-  
-  export const transformMeasures = (measures) => {
-    return Object.keys(measures).reduce((result, dimensionName) => {
-      const dimensionDefinition = measures[dimensionName];
+
+export const transformMeasures = (measures) => {
+  return Object.keys(measures).reduce((result, dimensionName) => {
+    const dimensionDefinition = measures[dimensionName]
       return {
-        ...result,
-        [dimensionName]: convertStringPropToFunction(
-          ['sql','drillMembers'],
-          dimensionDefinition
-        ),
-      };
-    }, {});
+      ...result,
+      [dimensionName]: convertStringPropToFunction(
+        ['sql', 'drillMembers'],
+        dimensionDefinition
+      )
+    }
+    }, {})
   };
