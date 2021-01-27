@@ -12,7 +12,6 @@
     "@cubejs-backend/server": "^0.25.30"
   },
   "dependencies": {
-    "@dalongrong/mycubejs-schema": "^1.0.0",
     "jsonwebtoken": "^8.5.1",
     "node-fetch": "^2.6.1",
     "throng": "^5.0.0"
