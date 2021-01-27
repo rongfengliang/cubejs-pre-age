@@ -4,15 +4,16 @@
   "private": true,
   "scripts": {
     "dev": "./node_modules/.bin/cubejs-server",
-    "app": "node index.js"
+    "app": "CUBEJS_TELEMETRY=false  node index.js"
   },
   "devDependencies": {
-    "@cubejs-backend/cubestore-driver": "^0.25.24",
-    "@cubejs-backend/postgres-driver": "^0.25.24",
-    "@cubejs-backend/server": "^0.25.24"
+    "@cubejs-backend/cubestore-driver": "^0.25.30",
+    "@cubejs-backend/postgres-driver": "^0.25.30",
+    "@cubejs-backend/server": "^0.25.30"
   },
   "dependencies": {
-    "@dalongrong/cube-s3repository": "^1.0.1",
+    "@dalongrong/mycubejs-schema": "^1.0.0",
+    "jsonwebtoken": "^8.5.1",
     "node-fetch": "^2.6.1",
     "throng": "^5.0.0"
   }
